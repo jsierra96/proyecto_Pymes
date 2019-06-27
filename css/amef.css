@@ -1,0 +1,9 @@
+.center{
+    text-align: center;
+    font-size: 20pt;
+}
+.cabecera{
+    min-width: 150px;
+    text-align: center;
+    font-weight: bold; 
+}
