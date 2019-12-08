@@ -36,7 +36,7 @@
         <?php
             $eId = $id['eClave'];
             $object = new ListaRiesgos($eId);
-            $object->listaRiesgos($eId);
+            //$object->listaRiesgos($eId);
         ?>
     </tbody>
 </table>

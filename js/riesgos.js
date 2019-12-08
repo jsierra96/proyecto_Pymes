@@ -326,7 +326,7 @@ $('#btnGuardarRiesgo').click(function () {
             dataType: 'json'
         }).then(function (data) {
             if (data.accion == "valido") {
-                alert('Datos guardos con exito.');
+                window.location = "riesgos";
             }
         });
     }
@@ -381,7 +381,7 @@ $('#btnEditarDatos').click(function () {
             dataType: 'json'
         }).then(function (data) {
             if (data.accion == "valido") {
-                alert('datos Actualizados');
+                window.location = "riesgos";
             }
         });
     }
@@ -398,7 +398,7 @@ function eliminar(data) {
         url: '../control/riesgos.php?option=delete',
         type: 'post',
         success: function (response) {
-            console.log(response);
+            window.location = "riesgos";
         }
     });
 }
