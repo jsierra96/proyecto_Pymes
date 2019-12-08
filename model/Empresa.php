@@ -58,6 +58,7 @@
                 $oConexion->desconecta();
             }
         }
+        
 //--------------------------------------------------------------------------------
 public function modificar($ac){
     $oConexion = new conexion();
@@ -87,5 +88,17 @@ public function modificar($ac){
     }
     return $oRes;
 }
+//+++++++++++++++++++++++++++++++++++++ Logo y nombre de la empresa +++++++++++++++++++++++++++++++++++++
+        public function dEmpresa($id){
+            $oConexion = new conexion();
+            $sQuery = "SELECT empresa, logo FROM Empresas WHERE id_empresa=$id;";
+            if($oConexion->conecta()){
+                $oDatos = $oConexion->ejecutaConsulta($sQuery);
+            }
+            $oConexion->desconecta();
+            return $oDatos;
+        }
+
+        
     }
 ?>

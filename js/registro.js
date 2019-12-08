@@ -17,7 +17,7 @@ $(document).ready(function(){
         e.preventDefault();
         var formData = new FormData($("#guardar")[0]);
         $.ajax({
-          url: '/control/registrar.php',
+          url: 'control/registrar.php',
           type : 'POST',
           data: formData,
           contentType: false,

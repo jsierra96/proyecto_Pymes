@@ -11,7 +11,7 @@
         else if($_REQUEST['views'] == 'registro')
             require_once 'view/registro.php';
         else if($_REQUEST['views'] == 'recupera')
-            require_once 'view/login.php';
+            require_once 'view/recupera.php';
         else if($_REQUEST['views'] == 'panel' && isset($_REQUEST['op']) && isset($_SESSION['user'])){
             $user = $_SESSION['user'];
             $opcion = $_REQUEST['op'];
@@ -53,7 +53,8 @@
                     $_SESSION['manual'] = 10;
                     require_once 'control/manual.php';
                     require_once 'view/cd10.php';
-                }echo '<script type="text/javascript">
+                }
+                echo '<script type="text/javascript">
                 var editorText = $("textarea").ckeditor(function(){
                   CKFinder.setupCKEditor(this, "'.SERVERURL.'libs/ckeditor/plugins/ckfinder/");
                 });
@@ -61,17 +62,16 @@
             }else if($_REQUEST['op'] == 'gm'){
                 require_once 'view/gm.php';
             }else if($_REQUEST['op'] == 'ds'){
-                require_once 'view/panel.php';
+                require_once 'view/ds.php';
             }else if($_REQUEST['op'] == 'dp'){
                 require_once 'view/dp.php';
             }else if($_REQUEST['op'] == 'de'){
                 require_once 'view/de.php';
             }else if($_REQUEST['op'] == 'cc'){
-                require_once 'view/panel.php';
+                require_once 'view/cc.php';
             }
             echo '</div></div></div></section>';
             echo '</section><script src="'.SERVERURL.'js/panel.js"></script>';
-            
             
         }else{
             header('Location:'.SERVERURL);

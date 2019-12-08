@@ -100,7 +100,10 @@ class Usuario extends Direcciones{
             $oDatos = $oConexion->ejecutaConsulta($sQuery);
             if($oDatos){
                 $id = $oDatos[0][0];
-                $sQuery = "SELECT a.id_user,a.tipo,a.id_empresa,b.id_datos,b.nombre,b.ape_pa,b.ape_ma,b.puesto,b.telefono,b.nacido,b.foto,b.id_dir,c.calle,c.colonia,c.ciudad,c.municipio,c.estado,a.email FROM Usuarios a inner JOIN DatosUsuario b on a.id_user=b.id_user INNER JOIN Direcciones c on c.id_dir=b.id_dir";
+                $sQuery = "SELECT a.id_user,a.tipo,a.id_empresa,b.id_datos,b.nombre,b.ape_pa,
+                    b.ape_ma,b.puesto,b.telefono,b.nacido,b.foto,b.id_dir,c.calle,c.colonia,c.ciudad,
+                    c.municipio,c.estado,a.email FROM Usuarios a inner JOIN DatosUsuario b on 
+                    a.id_user=b.id_user INNER JOIN Direcciones c on c.id_dir=b.id_dir AND a.id_user=$id;";
                 $oDatos = $oConexion->ejecutaConsulta($sQuery);
                 if($oDatos)
                     $Data = $oDatos;
@@ -114,6 +117,17 @@ class Usuario extends Direcciones{
             $Data = null;
         }
 
+        return $Data;
+    }
+//++++++++++++++++++++++++++++++++++++ Verificar E-Mail +++++++++++++++++++++++++++++++++++
+    public function vEmail(){
+        $oConexion = new conexion();
+        $Data = null;
+        if($oConexion->conecta()){
+            $sQuery = "SELECT email, password FROM Usuarios WHERE email='".$this->sUser."';";
+            $Data = $oConexion->ejecutaConsulta($sQuery);
+            $oConexion->desconecta();
+        }
         return $Data;
     }
 //+++++++++++++++++++++++++++  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -177,7 +191,7 @@ public function ObtenerUsuario($uClave){
             ///      Sentencia SQL para agregar direccion de la empresa
             $sQuery = "INSERT INTO Direcciones(id_dir) VALUES ('".$empresa."');
                        INSERT INTO Direcciones(id_dir) VALUES ('".$this->sIdDir."');
-                       INSERT INTO Empresas(id_empresa, id_dir) VALUES('".$empresa."', '".$empresa."');
+                       INSERT INTO Empresas(id_empresa, id_dir, logo) VALUES('".$empresa."', '".$empresa."', 'images/tulogo.png');
                        INSERT INTO Usuarios(id_user, email, password, tipo, id_empresa) VALUES ('".$this->idUser."','".$this->sUser."','".$this->sPassword."','admin','".$empresa."');
                        INSERT INTO Manual(id_manual, id_empresa) VALUES ('".$empresa."','".$empresa."');
                        INSERT INTO Apartado4(id_manual) VALUES ('".$empresa."');
@@ -231,6 +245,17 @@ public function ObtenerUsuario($uClave){
             }
             $oConexion->desconecta();
             return $oRes;
+        }
+
+//+++++++++++++++++++++++++++++++++++++ Logo y nombre de la empresa +++++++++++++++++++++++++++++++++++++
+        public function dEmpresa($id){
+            $oConexion = new conexion();
+            $sQuery = "SELECT empresa, logo FROM Empresas WHERE id_empresa=$id;";
+            if($oConexion->conecta()){
+                $oDatos = $oConexion->ejecutaConsulta($sQuery);
+            }
+            $oConexion->desconecta();
+            return $oDatos;
         }
 
 }

@@ -51,19 +51,19 @@
         <div class="column2">
             <div class="container">
                 <h4>Nombre de la empresa:</h4>
-                <input type="text" name="" id="" value="<?php echo $pyme->getEmpresa();?>">
+                <input disabled="true" type="text" name="" id="" value="<?php echo $pyme->getEmpresa();?>">
             </div>
             <div class="container">
                 <h4>Dirección:</h4>
-                <input type="text" name="" id="" value="<?php echo $pyme->getDireccion();?>">
+                <input disabled="true" type="text" name="" id="" value="<?php echo $pyme->getDireccion();?>">
             </div>
             <div class="container">
                 <h4>vision:</h4>
-                <textarea name="" id=""><?php echo $pyme->getVision();?></textarea>
+                <textarea disabled="true" name="" id=""><?php echo $pyme->getVision();?></textarea>
             </div>
             <div class="container">
                 <h4>Mision:</h4>
-                <textarea name="" id=""><?php echo $pyme->getMision();?></textarea>
+                <textarea disabled="true" name="" id=""><?php echo $pyme->getMision();?></textarea>
             </div>
         </div>
     </div>

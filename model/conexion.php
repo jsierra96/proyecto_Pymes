@@ -7,14 +7,21 @@
   	function conecta(){
   		$val = false;
   		try{
-  			$this->oConexion = new PDO("mysql:host=localhost;dbname=PymesV2","root","",  array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'UTF8'")); 
-				//$this->oConexion = new PDO("mysql:host=localhost;dbname=id9665189_pymes","id9665189_jon","aldeanos",  array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'UTF8'"));
+  			$this->oConexion = new PDO("mysql:host=localhost;dbname=resi1","root","",  array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'UTF8'")); 
+			//$this->oConexion = new PDO("mysql:host=localhost;dbname=id9665189_pymes","id9665189_jon","aldeanos",  array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'UTF8'"));
 				$val = true;
   		}catch(Exception $e){
 			throw $e;
 		}
 		return $val;
-  	}
+	  }
+	  
+
+	  function newConection(){
+		 $conexion = new PDO("mysql:host=localhost;dbname=resi1", "root", "",  array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'UTF8'"));
+		 //$conexion = new PDO("mysql:host=localhost;dbname=id9665189_pymes","id9665189_jon","aldeanos",  array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'UTF8'"));
+        return $conexion;
+	  }
 
   	function desconecta(){
   		$val =false;

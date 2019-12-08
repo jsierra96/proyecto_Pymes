@@ -1,7 +1,7 @@
 <h2>Operación</h2><br><br>
 
-<form id="oManual">
-
+<form id="oManual" enctype="multipart/form-data" method="post" action="../control/guardaOp.php">
+<input type="hidden" name="apartado" value='8' id="opcion">
 <h3>8.1 Planificación y control operacional.</h3>
     <textarea name="campo1"><?php echo $campo[1]; ?></textarea>
 <h3>8.2 Requisitos para los productos y servicios.</h3>
@@ -26,7 +26,7 @@
     <textarea name="campo10"><?php echo $campo[10]; ?></textarea>
 <h3>8.3.6 Cambios del diseño y desarrollo.</h3>
     <textarea name="campo11"><?php echo $campo[11]; ?></textarea>
-<h3>8.4 Control de los procesos, productos y servicios suministrados externamente.</h3>
+<h3>8.4 Control de los procesos, productos y servicios suministrados exteridnte.</h3>
 <h3>8.4.1 Generalidades.</h3>
     <textarea name="campo12"><?php echo $campo[12]; ?></textarea>
 <h3>8.4.2 Tipo y alcance del control.</h3>
@@ -52,6 +52,6 @@
     <textarea name="campo22"><?php echo $campo[22]; ?></textarea>
     <br>
 
-    <input type="button" id="enviar" name="" value="Guardar">
+    <input type="submit" id="enviar" value="Guardar" >
 
 </form>

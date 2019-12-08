@@ -56,6 +56,9 @@
                     "respuesta": "No existe una empresa con esa clave"
                 }';
             }else if($oRes > 0){
+                $res = $sUsuario->dEmpresa($iEmpre);
+                $empresa = array("logo"=>$res[0][1], "nombre"=>$res[0][0]);
+                $_SESSION['pyme']=$empresa;
                 $Json = '{
                     "success": true,
                     "tipo": "'.$tipo.'",

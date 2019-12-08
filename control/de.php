@@ -22,7 +22,7 @@
     }
 
     $oDatos->setId($user['eClave']);
-    $oDatos->setIdDir($user['dClave']);
+    $oDatos->setIdDir($user['eClave']);
     $oDatos->setEmpresa($_REQUEST['op1']);
     $oDatos->setVision($_REQUEST['op7']);
     $oDatos->setMision($_REQUEST['op8']);
@@ -34,6 +34,9 @@
     $oDatos->setMunicipio($_REQUEST['op5']);
 
     $oRes = $oDatos->modificar($ac);
+    $data = $oDatos->dEmpresa($user['eClave']);
+    $empresa = array("logo"=>$data[0][1], "nombre"=>$data[0][0]);
+    $_SESSION['pyme']=$empresa;
     
     $Json = '{
         "success": true,

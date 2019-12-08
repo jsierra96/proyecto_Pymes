@@ -1,7 +1,7 @@
 <h2>Evaluación del desempeño</h2><br>
 
-<form id="oManual">
-
+<form id="oManual" enctype="multipart/form-data" method="post" action="../control/guardaOp.php">
+<input type="hidden" name="apartado" value='9' id="opcion">
 <h3>9.1 seguimiento, medición, análisis y evaluación.</h3>
 <h3>9.1.1 Generalidades.</h3>
     <textarea name="campo1"><?php echo $campo[1]; ?></textarea>
@@ -17,9 +17,10 @@
 <h3>9.3.2 Entradas de la revisión por la dirección.</h3>
     <textarea name="campo6"><?php echo $campo[6]; ?></textarea>
 <h3>9.3.3 Salidas de la revisión por la dirección.</h3>
-<textarea name="campo7"><?php echo $campo[7]; ?></textarea>
+    <textarea name="campo7"><?php echo $campo[7]; ?></textarea>
     <br>
 
-    <input type="button" id="enviar" name="" value="Guardar">
+   <input type="submit" id="enviar" value="Guardar" >
 
 </form>
+

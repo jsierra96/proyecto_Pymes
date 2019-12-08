@@ -1,7 +1,7 @@
 <h2>Liderazgo</h2><br>
 
-<form id="oManual">
-
+<form id="oManual" enctype="multipart/form-data" method="post" action="../control/guardaOp.php">
+<input type="hidden" name="apartado" value='5' id="opcion">
 <h3>5.1 Liderazgo y compromiso.</h3>
 <h3>5.1.1 Generalidades.</h3>
     <textarea name="campo1"><?php echo $campo[1]; ?></textarea>
@@ -15,6 +15,7 @@
 <h3>5.3 Roles, responsabilidades y autoridades en la organización.</h3>
     <textarea name="campo5"><?php echo $campo[5]; ?></textarea>
 <br>
-    <input type="button" id="enviar" name="" value="Guardar">
+    <input type="submit" id="enviar" value="Guardar" >
 
 </form>
+

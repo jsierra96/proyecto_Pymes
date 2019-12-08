@@ -1,7 +1,7 @@
 <h2>Apoyo</h2><br><br>
 
-<form id="oManual">
-
+<form id="oManual" enctype="multipart/form-data" method="post" action="../control/guardaOp.php">
+<input type="hidden" name="apartado" value='7' id="opcion">
 <h3>7.1 Recursos.</h3>
 <h3>7.1.1 Generalidades.</h3>
     <textarea name="campo1"><?php echo $campo[1]; ?></textarea>
@@ -30,6 +30,6 @@
     <textarea name="campo12"><?php echo $campo[12]; ?></textarea>
     <br>
 
-    <input type="button" id="enviar" name="" value="Guardar">
+    <input type="submit" id="enviar" value="Guardar" >
 
 </form>
